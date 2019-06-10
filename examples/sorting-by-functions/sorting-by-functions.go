@@ -11,6 +11,7 @@ import "fmt"
 // 类型。这里我们创建一个为内置 `[]string` 类型的别名的
 // `ByLength` 类型，
 type ByLength []string
+type ByLength2 = []string
 
 // 我们在类型中实现了 `sort.Interface` 的 `Len`，`Less`
 // 和 `Swap` 方法，这样我们就可以使用 `sort` 包的通用
@@ -34,4 +35,7 @@ func main() {
 	fruits := ByLength{"peach", "banana", "kiwi"}
 	sort.Sort(ByLength(fruits))
 	fmt.Println(fruits)
+
+	fruits2 := ByLength2{"peach", "banana", "kiwi"}
+	fmt.Println(fruits2)
 }
