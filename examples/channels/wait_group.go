@@ -8,6 +8,8 @@ import (
 
 func main() {
 	var wg sync.WaitGroup
+	// 用 new 创建的对象返回的已经是指针
+	//var wg = new(sync.WaitGroup)
 	for i := 0; i < 5; i = i + 1 {
 		wg.Add(1)
 		go func(n int) {
