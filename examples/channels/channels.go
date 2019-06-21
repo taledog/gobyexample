@@ -14,10 +14,29 @@ func main() {
     // 使用 `channel <-` 语法 _发送(send)_ 一个新的值到通道中。这里
     // 我们在一个新的 Go 协程中发送 `"ping"` 到上面创建的
     // `messages` 通道中。
-    go func() { messages <- "ping" }()
+    //for i := 0; i < 10; i++ {
+    //    go func(value int) {
+    //        print(value)
+    //        messages <- "ping"
+    //    }(i)
+    //}
+
+    //go func() {
+        //for i := 0; i < 10; i++ {
+            messages <- "ping"
+        //}
+    //}()
 
     // 使用 `<-channel` 语法从通道中 _接收(receives)_ 一个值。这里
     // 将接收我们在上面发送的 `"ping"` 消息并打印出来。
+
+    //select {
+    //case msg := <-messages:
+    //    fmt.Printf(msg)
+    //default:
+    //   fmt.Printf("no communication\n")
+    //}
+
     msg := <-messages
     fmt.Println(msg)
 }
